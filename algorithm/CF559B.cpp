@@ -8,17 +8,7 @@ string dsort(string s, int n) {
         return s;
     string t1 = dsort(s.substr(0, n/2), n/2);
     string t2 = dsort(s.substr((n+1)/2, n/2), n/2);
-    string tm = s.substr(n/2, n%2);
-    bool r = 0;
-    for (int i=0; i<n/2; ++i) {
-        if (t1[i]<t2[i])
-            break;
-        if (t1[i]>t2[i]) {
-            r = 1;
-            break;
-        }
-    }
-    return r?(t2+tm+t1):(t1+tm+t2);
+    return (t1<t2)?(t1+t2):(t2+t1);
 }
 
 void solve() {
